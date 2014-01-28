@@ -1,4 +1,4 @@
-function ajax(settings){
+function ajax(){
 
 	//The object that does the 'magic' of ajax. It must
 	//suport CORS.
@@ -12,7 +12,7 @@ function ajax(settings){
 	}
 
 
-	//settings initialized as default.
+	//params initialized as default.
 	this._url = null;
 	this._method = "GET";
 	this._async = true;
