@@ -16,6 +16,7 @@ function ajax(settings){
 	this._url = null;
 	this._method = "GET";
 	this._async = true;
+	this._data = null;
 
 
 
@@ -103,6 +104,7 @@ function ajax(settings){
 		var method = this._method;
 		var url = this._url;
 		var async = this._async;
+		var data = this._data;
 		
 		/////////////////////////////////////////////////////
 		//check the parameters
@@ -121,12 +123,22 @@ function ajax(settings){
 			if(params.async != null){
 				async = params.async;
 			}
+
+			if(params.data != null){
+				data = params.data;
+			}
 		}	
 		
 		//////////////////////////////////////////////////////
 		
 		rq.open(method, url, async);
-		rq.send();
+
+		if(data != null){
+			rq.send(data);
+		}
+		else{
+			rq.send();
+		}		
 
 		return this;		
 
